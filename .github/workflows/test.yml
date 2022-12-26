@@ -4,20 +4,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  EnvSetup:
-    name: 環境
+  Environment-Setup:
+    name: 環境階段
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-env.yml@main
 
-  # Debug-Echo:
-  #   runs-on: ubuntu-latest
-  #   needs: EnvSetup
-  #   steps:
-  #     - run: |
-  #         echo 模組包名 ${{ needs.testing.outputs.Modpack_Name }} 
-  #         echo 是否要生成資源包? ${{ needs.testing.outputs.Resourcepack_Patch_Generate }}
-
-  Resourcepack:
-    name: 資源包
+  Resourcepack-Maker:
+    name: 資源包階段
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-resourcepack.yml@main
     needs: EnvSetup
     with:
