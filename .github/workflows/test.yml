@@ -10,8 +10,8 @@ jobs:
 
   Resourcepack-Maker:
     name: 資源包階段
+    needs: Environment-Setup
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-resourcepack.yml@main
-    needs: EnvSetup
     with:
       modpack-name: ${{ needs.EnvSetup.outputs.modpack-name }}
-      resourcepack-generate: ${{ needs.EnvSetup.outputs.resourcepack-patch-generate }}
+      resourcepack-generate: ${{ needs.Environment-Setup.outputs.resourcepack-patch-generate }}
