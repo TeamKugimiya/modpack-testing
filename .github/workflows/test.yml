@@ -21,6 +21,5 @@ jobs:
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-resourcepack.yml@main
     needs: EnvSetup
     with:
-      Modpack_Name: ${{ needs.testing.outputs.Modpack_Name }}
-      Generate: true
-      # Generate: ${{ needs.testing.outputs.Resourcepack_Patch_Generate }}
+      modpack-name: ${{ needs.testing.outputs.Modpack_Name }}
+      resourcepack-generate: ${{ needs.testing.outputs.Resourcepack_Patch_Generate }}
