@@ -13,5 +13,5 @@ jobs:
     needs: Environment-Setup
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-resourcepack.yml@main
     with:
-      modpack-name: ${{ needs.EnvSetup.outputs.modpack-name }}
+      modpack-name: ${{ needs.Environment-Setup.outputs.modpack-name }}
       resourcepack-generate: ${{ needs.Environment-Setup.outputs.resourcepack-patch-generate }}
