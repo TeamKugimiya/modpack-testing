@@ -5,6 +5,7 @@ on:
 
 jobs:
   EnvSetup:
+    name: 環境
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-env.yml@main
 
   # Debug-Echo:
@@ -16,8 +17,10 @@ jobs:
   #         echo 是否要生成資源包? ${{ needs.testing.outputs.Resourcepack_Patch_Generate }}
 
   Resourcepack:
+    name: 資源包
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-resourcepack.yml@main
     needs: EnvSetup
     with:
-      Modpack_Name: ${{ needs.testing.outputs.Modpack_Name }} 
-      Generate: ${{ needs.testing.outputs.Resourcepack_Patch_Generate }}
+      Modpack_Name: ${{ needs.testing.outputs.Modpack_Name }}
+      Generate: true
+      # Generate: ${{ needs.testing.outputs.Resourcepack_Patch_Generate }}
