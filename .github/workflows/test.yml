@@ -6,7 +6,7 @@ on:
 jobs:
   Environment-Setup:
     name: 環境階段
-    uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-env.yml@main
+    uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-environment.yml@main
 
   Resourcepack-Maker:
     name: 資源包階段
@@ -15,3 +15,23 @@ jobs:
     with:
       modpack-name: ${{ needs.Environment-Setup.outputs.modpack-name }}
       resourcepack-generate: ${{ needs.Environment-Setup.outputs.resourcepack-patch-generate }}
+
+  Patch-Maker:
+    name: 補丁階段
+    needs: [ Environment-Setup, Resourcepack-Maker ]
+    uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-resourcepack.yml@main
+    with:
+      modpack-name: ${{ needs.Environment-Setup.outputs.modpack-name }}
+      modpack-version: 1.0
+      modpack-array: ${{ matrix.array }}
+      modpack-resourcepack: ${{ needs.Environment-Setup.outputs.resourcepack-patch-generate }}
+      modpack-mmlp: ${{ needs.Environment-Setup.outputs.download_mmlp }}
+      matrix-name: ${{ matrix.name }}
+
+    strategy:
+      matrix:
+        include:
+          - name: Client
+            array: ${{ needs.Environment-Setup.outputs.patch_array }}
+          - name: Server
+            array: ${{ needs.Environment-Setup.outputs.server_array }}
