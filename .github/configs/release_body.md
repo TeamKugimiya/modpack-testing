@@ -5,6 +5,7 @@
 ## 下載檔案
 
 單人 & 玩家端：下載下方的 $ModPack_Name_VAR-Patches.zip
+
 伺服器端：下載下方的 $ModPack_Name_VAR-Patches-Server.zip
 
 ## 安裝中文化補丁（玩家）
