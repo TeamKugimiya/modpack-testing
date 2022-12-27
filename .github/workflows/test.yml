@@ -23,7 +23,6 @@ jobs:
   #   with:
   #     modpack-name: ${{ needs.Environment-Setup.outputs.modpack-name }}
   #     modpack-version: 1.0
-  #     modpack-array: ${{ matrix.array }}
   #     modpack-resourcepack: ${{ needs.Environment-Setup.outputs.resourcepack-patch-generate }}
   #     modpack-mmlp: ${{ needs.Environment-Setup.outputs.download_mmlp }}
   #     matrix-name: ${{ matrix.name }}
@@ -32,6 +31,4 @@ jobs:
   #     matrix:
   #       include:
   #         - name: Client
-  #           array: ${{ needs.Environment-Setup.outputs.patch_array }}
   #         - name: Server
-  #           array: ${{ needs.Environment-Setup.outputs.server_array }}
