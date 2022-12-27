@@ -22,7 +22,7 @@ jobs:
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-resourcepack.yml@main
     with:
       modpack-name: ${{ needs.Environment-Setup.outputs.modpack_name }}
-      modpack-version: 1.0
+      modpack-version: "1.0"
       modpack-array: ${{ matrix.array }}
       modpack-resourcepack: ${{ needs.Environment-Setup.outputs.resourcepack_patch_generate }}
       modpack-mmlp: ${{ needs.Environment-Setup.outputs.download_mmlp }}
