@@ -2,6 +2,21 @@ name: 測試 reusable workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      modpack_version:
+        description: "模組包當前版本（預設為 v1.0）"
+        required: false
+        default: "v1.0"
+      tag:
+        description: "發布版本，例如 v1.0（預設為 alpha）"
+        required: false
+        default: "alpha"
+      per_release:
+        description: "預先發布版"
+        type: boolean
+      no_release:
+        description: "停用發布，將只會生成工作流程成品，並忽略掉發布階段"
+        type: boolean
 
 jobs:
   Environment-Setup:
@@ -23,6 +38,19 @@ jobs:
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-patch.yml@main
     with:
       modpack-name: ${{ needs.Environment-Setup.outputs.modpack_name }}
-      modpack-version: "1.0"
+      modpack-version: ${{ github.event.inputs.tag }}
+      modpack-resourcepack: ${{ needs.Environment-Setup.outputs.resourcepack_patch_generate }}
+      modpack-mmlp: ${{ needs.Environment-Setup.outputs.download_mmlp }}
+
+  Release-It:
+    name: 發布階段
+    if: |
+      always() &&
+      github.event.inputs.no_release != true
+    needs: [ Environment-Setup, Resourcepack-Maker, Patch-Maker ]
+    uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-release.yml@main
+    with:
+      modpack-name: ${{ needs.Environment-Setup.outputs.modpack_name }}
+      modpack-version: ${{ github.event.inputs.tag }}
       modpack-resourcepack: ${{ needs.Environment-Setup.outputs.resourcepack_patch_generate }}
       modpack-mmlp: ${{ needs.Environment-Setup.outputs.download_mmlp }}
