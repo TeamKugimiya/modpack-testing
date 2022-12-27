@@ -4,9 +4,9 @@
 
 ## 下載檔案
 
-單人 & 玩家端：下載下方的 $ModPack_Name_VAR-Patches.zip
+單人 & 玩家端：下載下方的 ``$ModPack_Name_VAR-Patches.zip``
 
-伺服器端：下載下方的 $ModPack_Name_VAR-Patches-Server.zip
+伺服器端：下載下方的 ``$ModPack_Name_VAR-Patches-Server.zip``
 
 ## 安裝中文化補丁（玩家）
 
@@ -20,4 +20,4 @@
 
 該補丁僅須安裝在伺服器上。安裝該補丁後，伺服器上的玩家才有完整的中文化體驗。
 
-使用 7-Zip 等軟體開啟 $ModPack_Name_VAR-Patches-Server.zip 壓縮檔，並將壓縮檔中的內容，解壓縮到伺服器的資料夾中。
+使用 7-Zip 等軟體開啟 ``$ModPack_Name_VAR-Patches-Server.zip`` 壓縮檔，並將壓縮檔中的內容，解壓縮到伺服器的資料夾中。
