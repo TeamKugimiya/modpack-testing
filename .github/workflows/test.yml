@@ -13,17 +13,17 @@ jobs:
     needs: Environment-Setup
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-resourcepack.yml@main
     with:
-      modpack-name: ${{ needs.Environment-Setup.outputs.modpack-name }}
-      resourcepack-generate: ${{ needs.Environment-Setup.outputs.resourcepack-patch-generate }}
+      modpack-name: ${{ needs.Environment-Setup.outputs.modpack_name }}
+      resourcepack-generate: ${{ needs.Environment-Setup.outputs.resourcepack_patch_generate }}
 
   # Patch-Maker:
   #   name: 補丁階段
   #   needs: [ Environment-Setup, Resourcepack-Maker ]
   #   uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-resourcepack.yml@main
   #   with:
-  #     modpack-name: ${{ needs.Environment-Setup.outputs.modpack-name }}
+  #     modpack-name: ${{ needs.Environment-Setup.outputs.modpack_name }}
   #     modpack-version: 1.0
-  #     modpack-resourcepack: ${{ needs.Environment-Setup.outputs.resourcepack-patch-generate }}
+  #     modpack-resourcepack: ${{ needs.Environment-Setup.outputs.resourcepack_patch_generate }}
   #     modpack-mmlp: ${{ needs.Environment-Setup.outputs.download_mmlp }}
   #     matrix-name: ${{ matrix.name }}
 
