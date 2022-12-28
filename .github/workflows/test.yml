@@ -19,14 +19,8 @@ on:
         type: boolean
 
 jobs:
-  Test:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo ${{ github.repository.owner }}
-
   Environment-Setup:
-    if: github.repository.owner == 'TeamKugimiya'
+    if: github.repository_owner == 'TeamKugimiya'
     name: 環境階段
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-environment.yml@main
 
