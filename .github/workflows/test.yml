@@ -1,4 +1,4 @@
-name: 測試 reusable workflow
+name: 模組翻譯打包流程
 
 on:
   workflow_dispatch:
@@ -20,6 +20,7 @@ on:
 
 jobs:
   Environment-Setup:
+    if: github.repository.owner == 'TeamKugimiya'
     name: 環境階段
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-environment.yml@main
 
