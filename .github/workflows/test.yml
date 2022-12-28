@@ -34,7 +34,7 @@ jobs:
 
   Patch-Maker:
     name: 補丁階段
-    if: github.repository_owner == 'TeamKugimiy' && always()
+    if: github.repository_owner == 'TeamKugimiya' && always()
     needs: [ Environment-Setup, Resourcepack-Maker ]
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-patch.yml@main
     with:
