@@ -20,7 +20,7 @@ on:
 
 jobs:
   Environment-Setup:
-    if: github.repository_owner == 'TeamKugimiy'
+    if: github.repository_owner == 'TeamKugimiya'
     name: 環境階段
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-environment.yml@main
 
