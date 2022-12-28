@@ -20,7 +20,7 @@ on:
 
 jobs:
   Environment-Setup:
-    if: github.repository_owner == 'TeamKugimiya'
+    if: github.repository_owner == 'TeamKugimiy'
     name: 環境階段
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-environment.yml@main
 
@@ -34,7 +34,9 @@ jobs:
 
   Patch-Maker:
     name: 補丁階段
-    if: always()
+    if: |
+      github.repository_owner == 'TeamKugimiy' &&
+      always()
     needs: [ Environment-Setup, Resourcepack-Maker ]
     uses: TeamKugimiya/reusable-workflows/.github/workflows/modpack-patch.yml@main
     with:
