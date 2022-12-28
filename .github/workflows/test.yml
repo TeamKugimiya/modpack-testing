@@ -19,6 +19,12 @@ on:
         type: boolean
 
 jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo ${{ github.repository.owner }}
+
   Environment-Setup:
     if: github.repository.owner == 'TeamKugimiya'
     name: 環境階段
