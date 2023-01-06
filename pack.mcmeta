@@ -1,0 +1,6 @@
+{
+   "pack":{
+      "pack_format":12,
+      "description":"§fTest! Version git $GIT_VAR$"
+   }
+}
