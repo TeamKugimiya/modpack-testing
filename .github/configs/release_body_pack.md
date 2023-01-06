@@ -9,4 +9,4 @@ a
 
 ### 最後更新時間
 
-$DATE_TIME$
+$DATE_TIME
