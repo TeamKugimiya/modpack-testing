@@ -11,7 +11,9 @@ jobs:
       resourcepack_file_name: "Testing"
       release_title_name: "Testing Release ResourcePack"
       release_body_path: ".github/configs/release_body_pack.md"
-      force_include_files: "LICENSE"
+      force_include_files: |
+        LICENSE
+        README.md
       # release_tag:
       # release_update:
       git_version_replacer: true
