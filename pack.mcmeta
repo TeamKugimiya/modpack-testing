@@ -1,6 +1,6 @@
 {
    "pack":{
       "pack_format":12,
-      "description":"§f測試用資源包"
+      "description":"§fTest! Version git $GIT_VAR"
    }
 }
