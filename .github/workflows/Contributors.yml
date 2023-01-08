@@ -11,4 +11,4 @@ jobs:
     name: 貢獻者清單
     uses: TeamKugimiya/reusable-workflows/.github/workflows/Contributors.yml@main
     with:
-      pull_request: "docs/readme"
+      pull_request: "main"
