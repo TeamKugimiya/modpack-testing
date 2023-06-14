@@ -3,8 +3,8 @@ modpack-name: Yee-Test
 
 # 模組包專案設定（自動更新通知）
 # 如果 Project ID 為空將會停止檢查
-modpack-project-id: 829758
-modpack-file-id: 4533570 
+modpack-project-id:
+modpack-file-id: 
 
 # 用戶端 - 複製陣列
 client-patch:

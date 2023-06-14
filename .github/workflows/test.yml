@@ -21,7 +21,7 @@ on:
 jobs:
   Resourcepack-Maker:
     name: 資源包階段
-    uses: TeamKugimiya/reusable-workflows/.github/workflows/Modpack-Resourcepack.yml@refactor
+    uses: TeamKugimiya/reusable-workflows/.github/workflows/Modpack-Resourcepack.yml@main
     with:
       force_include_files: "LICENSE"
       version: ${{ github.event.inputs.tag }}
@@ -29,7 +29,7 @@ jobs:
   Patch-Maker:
     name: 補丁階段
     needs: [ Resourcepack-Maker ]
-    uses: TeamKugimiya/reusable-workflows/.github/workflows/Modpack-Patch-Maker.yml@refactor
+    uses: TeamKugimiya/reusable-workflows/.github/workflows/Modpack-Patch-Maker.yml@main
     with:
       modpack-version: ${{ github.event.inputs.tag }}
       modpack-patch_resourcepack_maker: ${{ needs.Resourcepack-Maker.outputs.modpack_patch_resourcepack_maker }}
@@ -37,7 +37,7 @@ jobs:
   Release-It:
     name: 發布階段
     needs: [ Resourcepack-Maker, Patch-Maker ]
-    uses: TeamKugimiya/reusable-workflows/.github/workflows/Modpack-Release.yml@refactor
+    uses: TeamKugimiya/reusable-workflows/.github/workflows/Modpack-Release.yml@main
     with:
       modpack-version: ${{ github.event.inputs.tag }}
       modpack-official-version: ${{ github.event.inputs.modpack_version }}
